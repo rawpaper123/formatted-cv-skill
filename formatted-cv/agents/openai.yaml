@@ -1,0 +1,6 @@
+interface:
+  display_name: "Formatted CV"
+  short_description: "将候选人简历转换为 IntelliPro 标准 Word 与 PDF"
+  icon_small: "./assets/intellipro-logo.png"
+  icon_large: "./assets/intellipro-logo.png"
+  default_prompt: "Use $formatted-cv to format this resume as an IntelliPro candidate CV and return matching Word and PDF files."
