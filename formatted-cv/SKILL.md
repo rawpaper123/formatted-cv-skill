@@ -1,6 +1,6 @@
 ---
 name: formatted-cv
-description: Transform candidate resumes from DOCX or PDF into IntelliPro Formatted CVs that follow the retained IPG Candidate layout and branding, preserve the source language unless another language is requested, and deliver matching Word and PDF files named "Candidate Name - IPG Candidate". Use when the user asks to format, template, standardize, translate, or convert a resume/CV into a Formatted CV, IntelliPro CV, or IPG Candidate CV.
+description: Transform candidate resumes from DOCX or PDF into privacy-safe IntelliPro Formatted CVs that remove candidate contact details, follow the retained IPG Candidate layout and branding, preserve the source language unless another language is requested, and deliver matching Word and PDF files named "Candidate Name - IPG Candidate". Use when the user asks to format, template, standardize, translate, or convert a resume/CV into a Formatted CV, IntelliPro CV, or IPG Candidate CV.
 ---
 
 # Formatted CV
@@ -19,6 +19,8 @@ Create a candidate CV from the retained IntelliPro reference. Return both DOCX a
 - Detect the source resume's main language and use it for the output by default.
 - Use another language only when the user explicitly requests it. Translate faithfully when needed.
 - Extract facts from the supplied resume only. Do not invent employers, dates, titles, credentials, compensation, visa status, achievements, metrics, publications, patents, or contact details.
+- Never include candidate contact details, even when present in the source: email addresses, telephone/mobile numbers, street or mailing addresses, personal messaging/social handles, or personal profile/contact URLs. Remove them without placeholders.
+- Keep location only at city, metro, state/province, or country level when relevant. Professional identifiers and content links such as ORCID, DOI, publication URLs, and project/repository URLs may remain when they support the CV rather than provide a contact route.
 - Ask for the candidate name if it cannot be established. Remove unavailable optional rows or sections cleanly; never leave placeholders such as `N/A`, `TBD`, or sample-candidate text.
 - The bracketed text in `assets/reference.docx` is privacy-safe structural guidance, not output content. Replace or delete every bracketed placeholder in the candidate deliverables.
 - Preserve all materially relevant source content. Page count may grow or shrink. Prefer additional pages over smaller type, cramped spacing, or destructive summarization.
@@ -28,7 +30,7 @@ Create a candidate CV from the retained IntelliPro reference. Return both DOCX a
 
 1. Copy `assets/reference.docx` to a task-local working DOCX. Never edit the retained reference.
 2. Map the source content to the slot patterns in `references/template-spec.md`:
-   - candidate information;
+   - candidate information, excluding all direct contact details;
    - professional summary;
    - patents;
    - languages;
@@ -68,6 +70,7 @@ The Windows script verifies LibreOffice first, then tries WPS, Microsoft Word, a
 3. Compare the result with `assets/reference.pdf` for layout language, not fixed pagination: A4 proportions, margins, branding, typography, hierarchy, alignment, whitespace, bullets, and recurring header/footer treatment.
 4. Confirm the opening-information values share one exact left edge in both DOCX and PDF. Fail and revise if any row shifts because of label length, spaces, or default tab spacing.
 5. Fail and revise if any text clips, overlaps, becomes unreadably dense, wraps into the wrong column, leaves sample content, or separates a role heading from its content.
-6. Confirm both final files exist, are non-empty, open successfully, contain the same candidate content, and follow the required filenames.
+6. Search both final files for every source email address, phone number, detailed address, social/messaging handle, and personal contact/profile URL. Fail and revise if any survives.
+7. Confirm both final files exist, are non-empty, open successfully, contain the same candidate content, and follow the required filenames.
 
 After changing scripts or retained assets, run `scripts/self_test.ps1` on Windows or `bash scripts/self_test.sh` on macOS.

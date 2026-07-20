@@ -11,6 +11,7 @@
 - Visual reference: 4 A4 pages. The page count is an example, not a limit.
 - Package baseline: 17 ZIP parts, one Word section, 107 body paragraphs, no tables, no content controls, no fields, and no footnotes/endnotes.
 - Privacy baseline: all candidate facts, names, employers, schools, locations, identifiers, publication links, document authors, and external hyperlinks have been replaced or removed. Bracketed text is structural guidance only and must never survive into a candidate deliverable.
+- Output privacy rule: never include candidate email addresses, phone numbers, detailed street/mailing addresses, personal messaging/social handles, or personal contact/profile URLs. City-level location, professional identifiers such as ORCID, and content links such as DOI, publication, or project/repository URLs may remain when relevant.
 
 ## Page and brand system
 
@@ -31,7 +32,7 @@
 
 ## Slot map
 
-- Body paragraphs 0-7: opening candidate information. One field per paragraph, with exactly one tab between label and value. Every paragraph carries the same explicit left tab stop at 1.75 inches from the text area's left edge; never substitute spaces or multiple default tabs.
+- Body paragraphs 0-7: opening candidate information. Use only non-contact fields such as name, city-level location, current company, current position, and relevant professional identifiers. One field per paragraph, with exactly one tab between label and value. Every paragraph carries the same explicit left tab stop at 1.75 inches from the text area's left edge; never substitute spaces or multiple default tabs.
 - Paragraph 10: summary heading. Paragraphs 11-19 provide the triangular-bullet summary pattern.
 - Paragraph 21: patents heading. Paragraphs 22-24 provide compact patent bullet patterns.
 - Paragraph 26: languages heading. Paragraph 27 provides the language-line pattern.
@@ -51,6 +52,7 @@ Paragraph numbers identify the immutable retained reference only. After cloning 
 ## Variable-content rules
 
 - Candidate name is required. Credentials may remain in the displayed name and filename when the source uses them.
+- Remove direct contact fields even when populated in the source; do not replace them with redaction labels or placeholders.
 - Optional opening fields may be removed when absent. Replace or delete every bracketed placeholder; never retain sanitized reference text in a candidate deliverable.
 - Omit an absent optional section and its surrounding excess whitespace.
 - Clone a complete experience or publication pattern for additional entries. Preserve the source list/numbering definitions and hanging indents.

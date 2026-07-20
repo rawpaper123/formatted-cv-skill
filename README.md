@@ -1,6 +1,6 @@
 # Formatted CV Skill
 
-将候选人简历整理为 IntelliPro Formatted CV。支持 Windows 和 macOS，默认沿用原简历语言。
+将候选人简历整理为 IntelliPro Formatted CV。支持 Windows 和 macOS，默认沿用原简历语言，并移除邮箱、电话、详细地址等候选人联系信息。
 
 ## 安装并使用
 
